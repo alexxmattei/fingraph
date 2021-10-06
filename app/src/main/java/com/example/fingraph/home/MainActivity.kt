@@ -1,4 +1,4 @@
-package com.example.fingraph
+package com.example.fingraph.home
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import com.example.fingraph.R
 import com.example.fingraph.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

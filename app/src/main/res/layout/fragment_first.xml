@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".home.FirstFragment">
 
     <TextView
-        android:id="@+id/textview_first"
+        android:id="@+id/textview_welcome_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome to the FinGraph App!"
@@ -15,6 +15,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="FinGraph is an application designed to help investors with managing their assets in a more swift,elegant way. It automatizes the way you interact with data making your decisions more viable and easy to track and evaluate.Click the 'Next' button to navigate to the interface."
+        app:layout_constraintBottom_toTopOf="@id/button_first"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.856" />
 
     <Button
         android:id="@+id/button_first"
@@ -24,5 +37,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_first" />
+        app:layout_constraintTop_toBottomOf="@id/textview_welcome_message" />
 </androidx.constraintlayout.widget.ConstraintLayout>

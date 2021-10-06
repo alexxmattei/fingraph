@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25833333333333336" />
+        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/app/src/main/res/drawable/ic_app_foreground.xml" value="0.25833333333333336" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/app/src/main/res/drawable/ic_financial_data_icon.xml" value="0.25833333333333336" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/app/src/main/res/drawable/ic_launcher_background.xml" value="0.25833333333333336" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
+        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/app/src/main/res/layout/content_main.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/app/src/main/res/layout/fragment_first.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/app/src/main/res/menu/menu_main.xml" value="0.4" />
       </map>
