@@ -4,16 +4,18 @@ import android.content.Context
 import com.example.fingraph.models.UserData
 
 
-class SharedPreferencesManager private constructor(private val domainContext: Context){
+class SharedPreferencesManager private constructor(private val domainContext: Context) {
     val getLoggedInToken: Boolean
         get() {
-            val sharedPreferences = domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
+            val sharedPreferences =
+                domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
             return sharedPreferences.getString("Token", null) != null
         }
 
     val userAppData: UserData
         get() {
-            val sharedPreferences = domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
+            val sharedPreferences =
+                domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
             return UserData(
                 sharedPreferences.getString("Email", "") ?: "",
                 sharedPreferences.getString("Password", "") ?: ""
@@ -21,7 +23,8 @@ class SharedPreferencesManager private constructor(private val domainContext: Co
         }
 
     fun saveUserCredentials(user: UserData) {
-        val sharedPreferences = domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val sharedPreferences =
+            domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         editor.putString("Email", user.email)
@@ -30,7 +33,8 @@ class SharedPreferencesManager private constructor(private val domainContext: Co
     }
 
     fun clearSharedPreferences() {
-        val sharedPreferences = domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val sharedPreferences =
+            domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.clear()
         editor.apply()

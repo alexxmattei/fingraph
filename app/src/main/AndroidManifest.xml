@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fingraph">
         <activity
+            android:name=".register.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".onboarding.OnboardingStepThreeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".onboarding.OnboardingStepTwoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".onboarding.OnboardingStepOneActivity"
+            android:exported="true" />
+        <activity
             android:name=".splash.SplashActivity"
             android:exported="true" />
         <activity
