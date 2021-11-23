@@ -134,7 +134,7 @@
             android:textColor="#a4a4a4"
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
-            android:text="No account yet? "
+            android:text="Experiencing trouble?"
             android:textSize="15sp" />
 
         <TextView
@@ -143,52 +143,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:textColor="@color/white"
-            android:layout_marginStart="154dp"
-            android:layout_marginTop="-20dp"
+            android:layout_marginStart="185dp"
+            android:layout_marginTop="-21dp"
             android:text="Contact us!"
             android:textSize="15sp"
             android:textStyle="bold" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textViewTextPart1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="710dp"
-        android:layout_marginEnd="300dp"
-        android:fontFamily="sans-serif"
-        android:text="Check how"
-        android:textColor="@color/black"
-        android:textFontWeight="300"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/appTutorial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="710dp"
-        android:layout_marginEnd="226dp"
-        android:fontFamily="sans-serif"
-        android:text="Sales Time"
-        android:textColor="@color/black"
-        android:textFontWeight="600"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="710dp"
-        android:layout_marginEnd="181dp"
-        android:fontFamily="sans-serif"
-        android:text="works!"
-        android:textColor="@color/black"
-        android:textFontWeight="300"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
