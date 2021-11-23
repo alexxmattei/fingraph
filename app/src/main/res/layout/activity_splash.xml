@@ -44,7 +44,7 @@
         android:id="@+id/imageView3"
         android:layout_width="131dp"
         android:layout_height="86dp"
-        android:layout_marginStart="109dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="381dp"
         android:layout_marginEnd="171dp"
         android:layout_marginBottom="264dp"
