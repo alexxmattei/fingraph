@@ -1,10 +1,13 @@
 package com.example.fingraph.networking
 
+import com.example.fingraph.models.networking.request.CreateNewPasswordRequest
 import com.example.fingraph.models.networking.request.CreateUserRequest
 import com.example.fingraph.models.networking.request.VerifyTokenRequest
+import com.example.fingraph.models.networking.response.ResetPasswordResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiInterface {
     @POST("api/v1/auth/login")
@@ -12,6 +15,12 @@ interface ApiInterface {
 
     @POST("api/v1/auth/token")
     suspend fun verifyToken(@Body userToken: VerifyTokenRequest): Response<Any>
+
+    @POST("api/v1/reset_pass/requests/{email}")
+    suspend fun sendEmailResetPassword(@Path("email") email : String) : ResetPasswordResponse
+
+    @POST("api/v1/reset_pass/update")
+    suspend fun updatePassword(@Body updatePassword: CreateNewPasswordRequest)
 
     companion object {
         const val BASE_URL = "http://localhost:8080"
