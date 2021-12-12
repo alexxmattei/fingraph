@@ -13,4 +13,23 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- primary colors -->
+    <color name="design_primary">#F9F9FC</color>
+    <color name="design_secondary">#EEEEF2</color>
+    <!-- text colors -->
+    <color name="design_primary_text">#484964</color>
+    <color name="design_secondary_text">#242533</color>
+    <color name="design_black_text">#FF000000</color>
+    <!-- object colors -->
+    <color name="design_search_bar">#1A644DED</color>
+    <color name="design_primary_medicine">#D39D9D</color>
+    <color name="design_primary_prescription_medicine">#B2D0CE</color>
+    <color name="design_primary_back_button">#1A000000</color>
+    <color name="design_primary_search_bar">#DEDEDE</color>
+    <!-- menu colors -->
+    <color name="design_primary_menu_unselected">#242533</color>
+    <color name="design_primary_menu_selected">#644DED</color>
+    <!-- other colors -->
+    <color name="design_primary_color_accent">#333333</color>
 </resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- primary colors -->
+    <color name="design_primary">#1E1F1F</color>
+    <color name="design_secondary">#252626</color>
+    <!-- text colors -->
+    <color name="design_primary_text">#FFFFFF</color>
+    <color name="design_secondary_text">#79767D</color>
+    <color name="design_black_text">#FFFFFF</color>
+    <!-- object colors -->
+    <color name="design_search_bar">#1A644DED</color>
+    <color name="design_primary_medicine">#D39D9D</color>
+    <color name="design_primary_prescription_medicine">#B2D0CE</color>
+    <color name="design_primary_back_button">#1AFFFFFF</color>
+    <color name="design_primary_search_bar">#1AFFFFFF</color>
+    <!-- menu colors -->
+    <color name="design_primary_menu_unselected">#FFFFFF</color>
+    <color name="design_primary_menu_selected">#5D5FEF</color>
+    <!-- other colors -->
+    <color name="design_primary_color_accent">#FFFFFF</color>
+</resources>

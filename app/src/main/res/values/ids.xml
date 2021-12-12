@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="icon_view_back_button" type="id"/>
+    <item name="edit_text_search" type="id"/>
+    <item name="image_view_clear_search" type="id"/>
+    <item name="recycler_view_tags" type="id"/>
+    <Item name="frame_layout_container" type="id"/>
+    <item name="frame_layout_tab_container_home" type="id"/>
+</resources>

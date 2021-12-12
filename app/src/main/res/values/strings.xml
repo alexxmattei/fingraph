@@ -7,6 +7,11 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <!-- Home Screen -->
+    <string name="home_activity_title">Cryptocurrencies</string>
+    <string name="home_activity_subtitle">Track your crypto</string>
+
+    <!-- Fragments -->
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_onboarding_step_one">onboarding_step_one_activity</string>
