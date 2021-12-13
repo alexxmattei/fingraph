@@ -4,6 +4,6 @@
     <item name="edit_text_search" type="id"/>
     <item name="image_view_clear_search" type="id"/>
     <item name="recycler_view_tags" type="id"/>
-    <Item name="frame_layout_container" type="id"/>
+    <item name="frame_layout_container" type="id"/>
     <item name="frame_layout_tab_container_home" type="id"/>
 </resources>

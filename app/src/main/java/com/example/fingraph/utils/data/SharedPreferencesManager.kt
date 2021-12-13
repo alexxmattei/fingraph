@@ -2,6 +2,7 @@ package com.example.fingraph.utils.data
 
 import android.content.Context
 import com.example.fingraph.models.UserData
+import com.example.fingraph.models.networking.request.VerifyTokenRequest
 
 
 class SharedPreferencesManager private constructor(private val domainContext: Context) {
@@ -18,17 +19,25 @@ class SharedPreferencesManager private constructor(private val domainContext: Co
                 domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
             return UserData(
                 sharedPreferences.getString("Email", "") ?: "",
-                sharedPreferences.getString("Password", "") ?: ""
+                sharedPreferences.getString("Token", "") ?: ""
             )
         }
 
-    fun saveUserCredentials(user: UserData) {
+    fun saveUserEmail(user: UserData) {
         val sharedPreferences =
             domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         editor.putString("Email", user.email)
 
+        editor.apply()
+    }
+
+    fun saveUserDataToken(userToken: VerifyTokenRequest) {
+        val sharedPreferencesManager = domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferencesManager.edit()
+
+        editor.putString("Token", userToken.token)
         editor.apply()
     }
 
