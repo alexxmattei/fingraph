@@ -9,7 +9,7 @@ class Validators {
             return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
         }
         fun isValidPassword(password: String?) : Boolean {
-                return !TextUtils.isEmpty(password) && (password?.length!! >= 6)
+                return !TextUtils.isEmpty(password)
         }
         fun isSamePassword(firstPassword: String?, secondPassword: String?): Boolean {
             if(firstPassword?.length!! > 0 && secondPassword?.length!! > 0) {

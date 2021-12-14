@@ -91,6 +91,7 @@
                 android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:textSize="15sp"
+                android:textColor="@color/black"
                 app:backgroundTint="@color/cardview_light_background"
                 app:hintTextAppearance="@color/purple_500" />
         </com.google.android.material.textfield.TextInputLayout>

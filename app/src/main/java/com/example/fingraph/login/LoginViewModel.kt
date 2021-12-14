@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class LoginViewModel : BaseViewModel() {
     private val loginUserUseCase = LoginUserUseCase()
-    private val loginSuccess = MutableLiveData<Boolean>()
+    val loginSuccess = MutableLiveData<Boolean>()
 
     fun loginUser(user: CreateUserRequest) {
         viewModelScope.launch(Dispatchers.IO) {
