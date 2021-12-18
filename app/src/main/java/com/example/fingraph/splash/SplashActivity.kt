@@ -21,6 +21,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        supportActionBar?.hide()
 
         val userCredentials = SharedPreferencesManager.getInstance(applicationContext).userAppData
         val tokenVerifier = VerifyTokenRequest(userCredentials.token)

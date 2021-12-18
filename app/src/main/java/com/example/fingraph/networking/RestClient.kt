@@ -35,8 +35,8 @@ private class RetrofitRestClient : RestClient {
         return api.verifyToken(userToken)
     }
 
-    override suspend fun sendEmailResetPassword(email: String): ResetPasswordResponse {
-        return api.sendEmailResetPassword(email)
+    override suspend fun sendEmailResetPassword(username: String): ResetPasswordResponse {
+        return api.sendEmailResetPassword(username)
     }
 
     override suspend fun updatePassword(createNewPasswordRequest: CreateNewPasswordRequest) {
