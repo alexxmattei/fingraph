@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.SecondFragment">
+    tools:context=".home.NotificationsFragment">
 
     <TextView
         android:id="@+id/textview_second"

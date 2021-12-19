@@ -17,7 +17,7 @@ class VerifyTokenUseCase: UseCase<VerifyTokenRequest, Unit>(Dispatchers.IO) {
         val isValidToken = JSONObject(tokenResponse)
         Log.i("Token at splash", isValidToken["valid"].toString())
 
-        if(!(isValidToken["token"] as Boolean)) {
+        if(!(isValidToken["valid"] as Boolean)) {
             throw IllegalStateException("Please log in first!")
         }
     }

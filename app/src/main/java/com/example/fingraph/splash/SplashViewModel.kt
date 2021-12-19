@@ -15,7 +15,8 @@ class SplashViewModel: BaseViewModel() {
 
     fun verifyToken(userToken: VerifyTokenRequest) {
         viewModelScope.launch(Dispatchers.IO) {
-            when (val result = verifyTokenUseCase(userToken)) {
+            val result = verifyTokenUseCase(userToken)
+            when (result) {
                 is Result.Error -> {
                     isTokenValid.postValue(false)
                     setError(result.value)

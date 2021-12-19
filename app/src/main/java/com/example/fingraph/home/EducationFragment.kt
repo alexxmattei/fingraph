@@ -14,7 +14,7 @@ import com.example.fingraph.databinding.FragmentFirstBinding
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class EducationFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
 
