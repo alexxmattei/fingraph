@@ -23,6 +23,7 @@
     <string name="profile">Profile</string>
     <string name="messages">Messages</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="news">News</string>
 
     <!-- User profile -->
     <string name="user_profile_card_title">User Profile</string>
