@@ -8,7 +8,7 @@ import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fingraph.R
-import com.example.fingraph.home.HomeActivity
+import com.example.fingraph.home.MainActivity
 import com.example.fingraph.login.LoginActivity
 import com.example.fingraph.models.networking.request.VerifyTokenRequest
 import com.example.fingraph.utils.data.SharedPreferencesManager
@@ -30,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
         splashViewModel.isTokenValid.observe(this) {
             if (it) {
                 Handler().postDelayed({
-                    val mainIntent = Intent(this, HomeActivity::class.java)
+                    val mainIntent = Intent(this, MainActivity::class.java)
                     this.startActivity(mainIntent)
                     this.finish()
                 }, 1500)

@@ -1,59 +1,56 @@
 package com.example.fingraph.home
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.fingraph.R
+import com.example.fingraph.base.BaseActivity
+import com.example.fingraph.base.bindView
 import com.example.fingraph.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.tabs.TabLayout
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    private val rootView by bindView<ConstraintLayout>(R.id.container)
+    private val titleHeaderContainer by bindView<View>(R.id.linear_layout_title_container)
+    private val titleText by bindView<TextView>(R.id.tv_title)
+    private val subtitleText by bindView<TextView>(R.id.tv_sub_title)
+    private val rightButton by bindView<ImageView>(R.id.icon_view_right_button)
+    private val tabLayout by bindView<TabLayout>(R.id.tab_layout_navigate_home)
+    private val tabLayoutContainer: FrameLayout by bindView(R.id.frame_layout_tab_container_home)
+    private val searchView: SearchCryptocurrenciesView by bindView(R.id.search_view_cryptocurrencies)
+    private val deleteSearchQueryItemView: View by bindView(R.id.frame_layout_search_delete)
     private lateinit var binding: ActivityMainBinding
+
+    private val container: FrameLayout by bindView(R.id.frame_layout_container)
+    private val currentView: View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+        val navigationView: BottomNavigationView = binding.navigationView
+        val navigationController = findNavController(R.id.nav_host_fragment_activity_main)
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home,
+                R.id.navigation_education,
+                R.id.navigation_notifications,
+                R.id.navigation_dashboard
+            )
+        )
+        setupActionBarWithNavController(navigationController, appBarConfiguration)
+        navigationView.setupWithNavController(navigationController)
     }
 }

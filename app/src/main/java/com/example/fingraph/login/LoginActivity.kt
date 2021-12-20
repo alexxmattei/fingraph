@@ -7,7 +7,7 @@ import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fingraph.R
-import com.example.fingraph.home.HomeActivity
+import com.example.fingraph.home.MainActivity
 import com.example.fingraph.models.networking.request.CreateUserRequest
 import com.example.fingraph.utils.verifiers.Validators
 import java.io.IOException
@@ -57,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         loginViewModel.loginSuccess.observe(this) {
-            val loginIntent = Intent(this, HomeActivity::class.java)
+            val loginIntent = Intent(this, MainActivity::class.java)
             this.startActivity(loginIntent)
             this.finish()
         }

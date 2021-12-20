@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 
 
-class HomeViewModel : BaseViewModel() {
+class MainViewModel : BaseViewModel() {
     var isSearchVisible = false
 
     // TODO add introduction boolean step to shared preferences manager
