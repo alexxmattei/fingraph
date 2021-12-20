@@ -1,13 +1,13 @@
-package com.example.fingraph.home.ui.home
+package com.example.fingraph.home.ui.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class ProfileViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is the Home Fragment"
+        value = "My Profile"
     }
     val text: LiveData<String> = _text
 }

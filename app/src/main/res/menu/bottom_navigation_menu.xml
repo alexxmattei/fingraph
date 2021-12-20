@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_watchlist"
         android:enabled="true"
         android:icon="@drawable/ic_item_drawer"
         android:title="@string/watchlist"/>
@@ -16,7 +16,7 @@
         android:icon="@drawable/ic_messages"
         android:title="@string/notifications"/>
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_profile"
         android:enabled="true"
         android:icon="@drawable/ic_profile_empty"
         android:title="@string/profile"/>
