@@ -23,4 +23,9 @@
     <string name="profile">Profile</string>
     <string name="messages">Messages</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <!-- User profile -->
+    <string name="user_profile_card_title">User Profile</string>
+    <string name="user_profile_email">Email</string>
+    <string name="user_profile_name">Username</string>
 </resources>
