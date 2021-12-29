@@ -23,6 +23,7 @@
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.25833333333333336" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_email_dark_mode.xml" value="0.25833333333333336" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_fingraph.xml" value="0.13802083333333334" />
+        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_fingraph_mobile_icon.xml" value="0.25833333333333336" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_fingraph_splash_logo.xml" value="0.13802083333333334" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_fingraph_splash_screen_person.xml" value="0.13802083333333334" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_fingraph_text_logo.xml" value="0.13802083333333334" />
@@ -51,6 +52,7 @@
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_notifications.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_profile.xml" value="0.121875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_second.xml" value="0.2421875" />
+        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_watchlist.xml" value="0.11354166666666667" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/loginlinearlayer.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/navigation_layout.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2421875" />

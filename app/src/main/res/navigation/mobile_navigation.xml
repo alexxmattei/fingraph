@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_education" />
 
     <fragment
+        android:id="@+id/navigation_news"
+        android:name="com.example.fingraph.home.ui.news.NewsFragment"
+        android:label="News"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.fingraph.home.ui.notifications.NotificationsFragment"
         android:label="Notifications"

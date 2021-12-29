@@ -46,6 +46,7 @@ class MainActivity : BaseActivity() {
             setOf(
                 R.id.navigation_watchlist,
                 R.id.navigation_education,
+                R.id.navigation_news,
                 R.id.navigation_notifications,
                 R.id.navigation_profile
             )
