@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_cryptocurrency"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginLeft="14dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginRight="14dp"
+    android:clickable="true"
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="@color/design_primary"
+    app:cardCornerRadius="10dp"
+    app:contentPadding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/cryptocurrency_name"
+                android:layout_width="181dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="68dp"
+                android:text="BTCUSD" />
+
+            <TextView
+                android:id="@+id/cryptocurrency_price"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="end|center_vertical"
+                android:text="47315.77" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cryptocurrency_description"
+                android:layout_width="190dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="top"
+                android:text="Bitcoin / U.S Dollar" />
+
+            <TextView
+                android:id="@+id/cryptocurrency_timeframe_change_fiat"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="0dp"
+                android:gravity="end|center_vertical"
+                android:text="+1147.41" />
+
+            <TextView
+                android:id="@+id/cryptocurrency_timeframe_change_percent"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="end|center_vertical"
+                android:text="+2.49%" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
