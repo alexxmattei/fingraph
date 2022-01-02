@@ -18,8 +18,8 @@
     <color name="design_primary">#F9F9FC</color>
     <color name="design_secondary">#EEEEF2</color>
     <!-- text colors -->
-    <color name="design_primary_text">#484964</color>
-    <color name="design_secondary_text">#242533</color>
+    <color name="design_primary_text">#242533</color>
+    <color name="design_secondary_text">#484964</color>
     <color name="design_black_text">#FF000000</color>
     <!-- object colors -->
     <color name="design_search_bar">#1A644DED</color>
@@ -32,4 +32,10 @@
     <color name="design_primary_menu_selected">#644DED</color>
     <!-- other colors -->
     <color name="design_primary_color_accent">#333333</color>
+
+    <!-- trading colors -->
+    <color name="design_primary_asset_name">#FF000000</color>
+    <color name="design_primary_asset_description">#484964</color>
+    <color name="design_primary_ticker_negative">#f7525f</color>
+    <color name="design_primary_ticker_positive">#22ab94</color>
 </resources>

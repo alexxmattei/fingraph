@@ -18,4 +18,10 @@
     <color name="design_primary_menu_selected">#5D5FEF</color>
     <!-- other colors -->
     <color name="design_primary_color_accent">#FFFFFF</color>
+
+    <!-- trading colors -->
+    <color name="design_primary_asset_name">#d1d4dc</color>
+    <color name="design_primary_asset_description">#787b86</color>
+    <color name="design_primary_ticker_negative">#f7525f</color>
+    <color name="design_primary_ticker_positive">#22ab94</color>
 </resources>

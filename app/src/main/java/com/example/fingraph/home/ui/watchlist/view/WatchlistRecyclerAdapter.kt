@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fingraph.R
 import com.example.fingraph.cryptocurrency.CryptoTradingActivity
@@ -23,6 +24,47 @@ class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.V
         holder.cryptocurrencyPrice.text = cryptocurrencyPrice[position]
         holder.cryptocurrencyPriceChange.text = cryptocurrencyPriceChange[position]
         holder.cryptocurrencyPriceChangePercent.text = cryptocurrencyPriceChangePercent[position]
+
+        if ("+" in cryptocurrencyPriceChange[position]) {
+            holder.cryptocurrencyPriceChange.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.design_primary_ticker_positive
+                )
+            )
+            holder.cryptocurrencyPriceChangePercent.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.design_primary_ticker_positive
+                )
+            )
+        } else if ("-" in cryptocurrencyPriceChange[position]) {
+            holder.cryptocurrencyPriceChange.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.design_primary_ticker_negative
+                )
+            )
+            holder.cryptocurrencyPriceChangePercent.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.design_primary_ticker_negative
+                )
+            )
+        } else {
+            holder.cryptocurrencyPriceChange.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.design_primary_asset_description
+                )
+            )
+            holder.cryptocurrencyPriceChangePercent.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.design_primary_asset_description
+                )
+            )
+        }
     }
 
     override fun getItemCount(): Int {
