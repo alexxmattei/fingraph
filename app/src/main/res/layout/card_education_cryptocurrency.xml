@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_cryptocurrency"
+    android:id="@+id/card_education_cryptocurrency"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="14dp"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/card_news_title_container"
+            android:id="@+id/card_education_title_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:layout_marginStart="10dp"
             android:layout_marginBottom="5dp"
@@ -33,7 +33,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/card_news_title"
+                android:id="@+id/card_education_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -46,16 +46,16 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/card_news_tags_container"
+            android:id="@+id/card_education_tags_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="start"
             android:orientation="horizontal"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_news_title_container">
+            app:layout_constraintTop_toBottomOf="@id/card_education_title_container">
 
             <TextView
-                android:id="@+id/card_news_tags"
+                android:id="@+id/card_education_tags"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -71,11 +71,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
-            app:layout_constraintLeft_toRightOf="@id/card_news_tags_container"
-            app:layout_constraintTop_toBottomOf="@id/card_news_title_container">
+            app:layout_constraintLeft_toRightOf="@id/card_education_tags_container"
+            app:layout_constraintTop_toBottomOf="@id/card_education_title_container">
 
             <TextView
-                android:id="@+id/card_news_publish_date"
+                android:id="@+id/card_education_publish_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
@@ -93,10 +93,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            app:layout_constraintTop_toBottomOf="@id/card_news_title_container">
+            app:layout_constraintTop_toBottomOf="@id/card_education_title_container">
 
             <ImageView
-                android:id="@+id/news_image_cryptocurrency"
+                android:id="@+id/education_image_cryptocurrency"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingStart="10dp"
@@ -104,7 +104,6 @@
                 android:paddingEnd="10dp"
                 android:paddingBottom="10dp"
                 android:src="@drawable/ic_loading_coin_icon">
-
             </ImageView>
 
         </LinearLayout>
@@ -121,6 +120,7 @@
             app:layout_constraintTop_toBottomOf="@id/card_cryptocurrency_image_container">
 
             <TextView
+                android:id="@+id/text_education_topic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
@@ -130,7 +130,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/card_news_description_container"
+            android:id="@+id/card_education_description_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -142,6 +142,7 @@
             app:layout_constraintTop_toBottomOf="@id/card_education_topic">
 
             <TextView
+                android:id="@+id/text_education_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

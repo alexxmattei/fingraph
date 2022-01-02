@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_cryptocurrency"
+    android:id="@+id/card_news_cryptocurrency"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="14dp"
@@ -113,7 +113,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/card_education_author"
+            android:id="@+id/card_news_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -144,7 +144,7 @@
             android:orientation="horizontal"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_education_author">
+            app:layout_constraintTop_toBottomOf="@id/card_news_author">
 
             <TextView
                 android:id="@+id/text_news_description"
@@ -159,6 +159,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/news_read_more_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/card_news_description_container"
