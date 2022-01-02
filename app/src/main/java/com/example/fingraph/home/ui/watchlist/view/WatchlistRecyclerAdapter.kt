@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,13 @@ class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.V
         holder.cryptocurrencyPrice.text = cryptocurrencyPrice[position]
         holder.cryptocurrencyPriceChange.text = cryptocurrencyPriceChange[position]
         holder.cryptocurrencyPriceChangePercent.text = cryptocurrencyPriceChangePercent[position]
+
+        holder.cryptocurrencyFirstRow.setPadding(0, 0, 0, 12)
+        holder.cryptocurrencyName.textSize = 16.0F
+        holder.cryptocurrencyName.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.design_primary_text))
+
+        holder.cryptocurrencyDescription.textSize = 14.0F
+        holder.cryptocurrencyDescription.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.design_secondary_text))
 
         if ("+" in cryptocurrencyPriceChange[position]) {
             holder.cryptocurrencyPriceChange.setTextColor(
@@ -72,6 +80,7 @@ class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.V
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var cryptocurrencyFirstRow: LinearLayout
         var cryptocurrencyName: TextView
         var cryptocurrencyDescription: TextView
         var cryptocurrencyPrice: TextView
@@ -79,6 +88,7 @@ class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.V
         var cryptocurrencyPriceChangePercent: TextView
 
         init {
+            cryptocurrencyFirstRow = itemView.findViewById(R.id.card_cryptocurrency_first_row)
             cryptocurrencyName = itemView.findViewById(R.id.cryptocurrency_name)
             cryptocurrencyDescription = itemView.findViewById(R.id.cryptocurrency_description)
             cryptocurrencyPrice = itemView.findViewById(R.id.cryptocurrency_price)
