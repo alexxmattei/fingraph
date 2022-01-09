@@ -1,6 +1,8 @@
 package com.example.fingraph.home.ui.news.view
 
 import android.content.Intent
+import android.icu.number.NumberFormatter.with
+import android.icu.number.NumberRangeFormatter.with
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fingraph.R
 import com.example.fingraph.cryptocurrency.CryptoTradingActivity
 import com.example.fingraph.models.networking.response.CryptoNewsResponse
+import com.squareup.picasso.Picasso
 
 private const val NO_TITLE_AVAILABLE = "No title available"
 private const val NO_PUBLISH_DATE_AVAILABLE = "No publish date"
@@ -37,6 +40,11 @@ class NewsRecyclerAdapter(private val newsResponse: CryptoNewsResponse) : Recycl
             holder.newsTitle.text = NO_PUBLISH_DATE_AVAILABLE
         } else {
             holder.newsPublishDate.text = newsResponse.articles[position].publishedAt.toString()
+        }
+
+        if(!newsResponse.articles[position].urlToImage.isNullOrEmpty()) {
+            Picasso.get().load(newsResponse.articles[position].urlToImage).fit().centerCrop()
+                .into(holder.newsImageSlug);
         }
 
         if(newsResponse.articles[position].title.isNullOrEmpty()) {

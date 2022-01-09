@@ -4,14 +4,20 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.load
 import com.example.fingraph.R
 import com.example.fingraph.cryptocurrency.CryptoTradingActivity
+import com.example.fingraph.models.networking.response.CryptoPriceResponse
+import com.squareup.picasso.Picasso
 
-class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.ViewHolder>() {
+class WatchlistRecyclerAdapter(private val cryptoPriceDataList: List<CryptoPriceResponse>) : RecyclerView.Adapter<WatchlistRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -20,11 +26,19 @@ class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.V
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.cryptocurrencyName.text = cryptocurrencyName[position]
-        holder.cryptocurrencyDescription.text = cryptocurrencyDescription[position]
-        holder.cryptocurrencyPrice.text = cryptocurrencyPrice[position]
-        holder.cryptocurrencyPriceChange.text = cryptocurrencyPriceChange[position]
-        holder.cryptocurrencyPriceChangePercent.text = cryptocurrencyPriceChangePercent[position]
+        if(cryptoPriceDataList[position].logo_url.isNotEmpty()) {
+            if(".svg" in cryptoPriceDataList[position].logo_url) {
+                holder.cryptocurrencyImage.loadImage(cryptoPriceDataList[position].logo_url, R.drawable.ic_loading_coin_icon)
+            } else {
+                Picasso.get().load(cryptoPriceDataList[position].logo_url).fit().centerCrop()
+                    .into(holder.cryptocurrencyImage)
+            }
+        }
+        holder.cryptocurrencyName.text = cryptoPriceDataList[position].currency
+        holder.cryptocurrencyDescription.text = cryptoPriceDataList[position].name
+        holder.cryptocurrencyPrice.text = cryptoPriceDataList[position].price.toString()
+        holder.cryptocurrencyPriceChange.text = cryptoPriceDataList[position].oneHour.priceChangePct.toString()
+        holder.cryptocurrencyPriceChangePercent.text = cryptoPriceDataList[position].oneHour.priceChange.toString()
 
         holder.cryptocurrencyFirstRow.setPadding(0, 0, 0, 12)
         holder.cryptocurrencyName.textSize = 16.0F
@@ -33,7 +47,7 @@ class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.V
         holder.cryptocurrencyDescription.textSize = 14.0F
         holder.cryptocurrencyDescription.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.design_secondary_text))
 
-        if ("+" in cryptocurrencyPriceChange[position]) {
+        if ("+" in cryptoPriceDataList[position].oneHour.priceChangePct.toString()) {
             holder.cryptocurrencyPriceChange.setTextColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
@@ -46,7 +60,7 @@ class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.V
                     R.color.design_primary_ticker_positive
                 )
             )
-        } else if ("-" in cryptocurrencyPriceChange[position]) {
+        } else if ("-" in cryptoPriceDataList[position].oneHour.priceChangePct.toString()) {
             holder.cryptocurrencyPriceChange.setTextColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
@@ -76,10 +90,11 @@ class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.V
     }
 
     override fun getItemCount(): Int {
-        return cryptocurrencyName.size
+        return cryptoPriceDataList.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var cryptocurrencyImage: ImageView
         var cryptocurrencyFirstRow: LinearLayout
         var cryptocurrencyName: TextView
         var cryptocurrencyDescription: TextView
@@ -89,6 +104,7 @@ class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.V
 
         init {
             cryptocurrencyFirstRow = itemView.findViewById(R.id.card_cryptocurrency_first_row)
+            cryptocurrencyImage = itemView.findViewById(R.id.cryptocurrency_image)
             cryptocurrencyName = itemView.findViewById(R.id.cryptocurrency_name)
             cryptocurrencyDescription = itemView.findViewById(R.id.cryptocurrency_description)
             cryptocurrencyPrice = itemView.findViewById(R.id.cryptocurrency_price)
@@ -112,40 +128,16 @@ class WatchlistRecyclerAdapter : RecyclerView.Adapter<WatchlistRecyclerAdapter.V
         }
     }
 
-    private val cryptocurrencyName = arrayOf(
-        "BTC",
-        "ETH", "BNB", "USDT",
-        "SOL", "ADA", "XRP",
-        "DOT"
-    )
+    fun ImageView.loadImage(imageUri: String, placeholder: Int? = null) {
 
-    private val cryptocurrencyDescription = arrayOf(
-        "Bitcoin", "Ethereum",
-        "Binance Coin", "Tether",
-        "Solana", "Cardano",
-        "Ripple", "Polkadot"
-    )
+        val imageLoader = ImageLoader.Builder(this.context)
+            .componentRegistry { add(SvgDecoder(this@loadImage.context)) }
+            .build()
 
-    private val cryptocurrencyPrice = arrayOf(
-        "47054.55",
-        "4156.88", "312.00", "2.10",
-        "213.77", "2.46", "2.88",
-        "109.98"
-    )
-
-    private val cryptocurrencyPriceChange = arrayOf(
-        "+1100",
-        "+9.9", "+4.6", "+0.76",
-        "-6.5", "+0.77", "-0.62",
-        "+0.1"
-    )
-
-    private val cryptocurrencyPriceChangePercent = arrayOf(
-        "-",
-        "-", "-", "-",
-        "-", "-", "-",
-        "-"
-    )
-
+        load(uri = imageUri, imageLoader = imageLoader) {
+            crossfade(true)
+            placeholder(placeholder ?: R.drawable.ic_loading_coin_icon)
+        }
+    }
 
 }

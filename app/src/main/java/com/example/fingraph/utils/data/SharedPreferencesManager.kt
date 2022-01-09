@@ -3,9 +3,7 @@ package com.example.fingraph.utils.data
 import android.content.Context
 import com.example.fingraph.models.UserData
 import com.example.fingraph.models.networking.request.VerifyTokenRequest
-import com.example.fingraph.models.networking.response.Article
-import com.example.fingraph.models.networking.response.ArticleSource
-import com.example.fingraph.models.networking.response.CryptoNewsResponse
+import com.example.fingraph.models.networking.response.*
 
 
 class SharedPreferencesManager private constructor(private val domainContext: Context) {
@@ -79,6 +77,40 @@ class SharedPreferencesManager private constructor(private val domainContext: Co
                 )
             )
         )
+        var currentPrices: List<CryptoPriceResponse> = listOf(CryptoPriceResponse(
+            id = "",
+            currency = "",
+            symbol = "",
+            name = "",
+            logo_url = "",
+            status = "",
+            price = 0.0,
+            priceDate = "",
+            priceTimestamp = "",
+            circulatingSupply = "",
+            maxSupply = "",
+            marketCap = "",
+            marketCapDominance = "",
+            numExchanges = "",
+            numPairs = "",
+            numPairsUnmapped = "",
+            firstCandle = "",
+            firstTrade = "",
+            firstOrderBook = "",
+            rank = "",
+            high = 0.0,
+            highTimestamp = "",
+            oneHour = OneHour(
+                volume = "",
+                priceChange = 0.0,
+                priceChangePct = 0.0,
+                volumeChange = 0.0,
+                volumeChangePct = 0.0,
+                marketCapChange = 0.0,
+                marketCapChangePct = 0.0
+            )
+        ))
+        var defaultCryptoList = "BTC,ETH,BNB,USDT,SOL,ADA,XRP,DOT,USDC,DOGE,SHIB,LUNA,AVAX,LTC,LINK,UNI,ALGO,XLM"
 
         @Synchronized
         fun getInstance(domainContext: Context): SharedPreferencesManager {

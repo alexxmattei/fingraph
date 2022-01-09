@@ -3,12 +3,10 @@ package com.example.fingraph.networking
 import com.example.fingraph.models.networking.request.CreateNewPasswordRequest
 import com.example.fingraph.models.networking.request.CreateUserRequest
 import com.example.fingraph.models.networking.request.VerifyTokenRequest
+import com.example.fingraph.models.networking.response.CryptoPriceResponse
 import com.example.fingraph.models.networking.response.ResetPasswordResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiInterface {
     @POST("api/v1/auth/login")
@@ -22,6 +20,9 @@ interface ApiInterface {
 
     @PUT("api/v1/reset_pass/update")
     suspend fun updatePassword(@Body updatePassword: CreateNewPasswordRequest)
+
+    @GET("api/v1/nomics/price/{coin}")
+    suspend fun getCoinPriceById(@Path("coin") coin : String): List<CryptoPriceResponse>
 
     companion object {
         const val BASE_URL = "http://192.168.1.9:8080"
