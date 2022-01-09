@@ -7,13 +7,18 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fingraph.R
 import com.example.fingraph.cryptocurrency.CryptoTradingActivity
 import com.example.fingraph.models.networking.response.CryptoNewsResponse
 
-class NewsRecyclerAdapter : RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder>() {
+private const val NO_TITLE_AVAILABLE = "No title available"
+private const val NO_PUBLISH_DATE_AVAILABLE = "No publish date"
+private const val NO_AUTHOR_AVAILABLE = "No author"
+private const val NO_DESCRIPTION_AVAILABLE = "No description available"
+
+class NewsRecyclerAdapter(private val newsResponse: CryptoNewsResponse) : RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -22,10 +27,29 @@ class NewsRecyclerAdapter : RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.newsTitle.text = newsResponse.articles[position].title.toString()
-        holder.newsPublishDate.text = newsResponse.articles[position].publishedAt.toString()
-        holder.newsAuthor.text = newsResponse.articles[position].author.toString()
-        holder.newsDescription.text = newsResponse.articles[position].description.toString()
+        if(newsResponse.articles[position].title.isNullOrEmpty()) {
+            holder.newsTitle.text = NO_TITLE_AVAILABLE
+        } else {
+            holder.newsTitle.text = newsResponse.articles[position].title.toString()
+        }
+
+        if(newsResponse.articles[position].publishedAt.isNullOrEmpty()) {
+            holder.newsTitle.text = NO_PUBLISH_DATE_AVAILABLE
+        } else {
+            holder.newsPublishDate.text = newsResponse.articles[position].publishedAt.toString()
+        }
+
+        if(newsResponse.articles[position].title.isNullOrEmpty()) {
+            holder.newsTitle.text = NO_AUTHOR_AVAILABLE
+        } else {
+            holder.newsAuthor.text = newsResponse.articles[position].author.toString()
+        }
+
+        if(newsResponse.articles[position].title == "") {
+            holder.newsTitle.text = NO_DESCRIPTION_AVAILABLE
+        } else {
+            holder.newsDescription.text = newsResponse.articles[position].description.toString()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -44,7 +68,7 @@ class NewsRecyclerAdapter : RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder>
             newsTitle = itemView.findViewById(R.id.card_news_title)
             newsPublishDate = itemView.findViewById(R.id.card_news_publish_date)
             newsImageSlug = itemView.findViewById(R.id.news_image_cryptocurrency)
-            newsAuthor = itemView.findViewById(R.id.card_news_author)
+            newsAuthor = itemView.findViewById(R.id.text_news_author)
             newsDescription =
                 itemView.findViewById(R.id.text_news_description)
             readMoreButton = itemView.findViewById(R.id.news_read_more_button)
@@ -62,11 +86,4 @@ class NewsRecyclerAdapter : RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder>
             }
         }
     }
-
-    private lateinit var newsResponse: CryptoNewsResponse
-    private lateinit var newsTitle: String
-    private lateinit var newsPublishDate: String
-    private lateinit var newsImageSlug: String
-    private lateinit var newsAuthor: String
-    private lateinit var newsDescription: String
 }

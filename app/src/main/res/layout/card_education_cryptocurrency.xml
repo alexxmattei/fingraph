@@ -25,7 +25,8 @@
         <LinearLayout
             android:id="@+id/card_education_title_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginBottom="5dp"
             android:orientation="horizontal"
             app:layout_constraintLeft_toLeftOf="parent"

@@ -124,6 +124,7 @@
             app:layout_constraintTop_toBottomOf="@id/card_cryptocurrency_image_container">
 
             <TextView
+                android:id="@+id/text_news_author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"

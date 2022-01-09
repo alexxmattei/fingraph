@@ -5,17 +5,28 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.fingraph.R
 import com.example.fingraph.base.BaseActivity
 import com.example.fingraph.base.bindView
 import com.example.fingraph.databinding.ActivityMainBinding
+import com.example.fingraph.home.ui.news.NewsFragment
+import com.example.fingraph.home.ui.news.view.NewsRecyclerAdapter
+import com.example.fingraph.models.networking.response.CryptoNewsResponse
+import com.example.fingraph.networking.news.NewsApiInterface
+import com.example.fingraph.networking.news.NewsRestClient
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
+import kotlinx.coroutines.*
 
 class MainActivity : BaseActivity() {
 
@@ -28,6 +39,11 @@ class MainActivity : BaseActivity() {
     private val tabLayoutContainer: FrameLayout by bindView(R.id.frame_layout_tab_container_home)
     private val searchView: SearchCryptocurrenciesView by bindView(R.id.search_view_cryptocurrencies)
     private val deleteSearchQueryItemView: View by bindView(R.id.frame_layout_search_delete)
+
+    private val newsSectionView by bindView<RecyclerView>(R.id.news_recycler_view)
+    private val newsSectionCard by bindView<CardView>(R.id.card_news_cryptocurrency)
+
+
     private lateinit var binding: ActivityMainBinding
 
     private val container: FrameLayout by bindView(R.id.frame_layout_container)
@@ -53,5 +69,23 @@ class MainActivity : BaseActivity() {
         )
         setupActionBarWithNavController(navigationController, appBarConfiguration)
         navigationView.setupWithNavController(navigationController)
+
+//        fetchCryptoNews()
+    }
+
+    private fun fetchCryptoNews() {
+        val fragment = NewsFragment()
+        val newsFetchJob = Job()
+        val errorHandler = CoroutineExceptionHandler { _, _ ->
+            Toast.makeText(applicationContext, "Error loading news data", Toast.LENGTH_LONG).show()
+        }
+        val scope = CoroutineScope(newsFetchJob + Dispatchers.Main)
+        scope.launch(errorHandler) {
+            val response: CryptoNewsResponse = NewsRestClient.INSTANCE.getNewsCryptoLatest(
+                q = NewsApiInterface.BASE_QUERY,
+                sortBy = NewsApiInterface.SORTED,
+                apiKey = NewsApiInterface.API_KEY
+            )
+        }
     }
 }

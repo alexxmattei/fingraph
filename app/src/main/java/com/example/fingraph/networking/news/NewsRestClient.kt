@@ -1,9 +1,7 @@
 package com.example.fingraph.networking.news
 
 import com.example.fingraph.models.networking.response.CryptoNewsResponse
-import com.example.fingraph.networking.HeaderInterceptor
 import okhttp3.OkHttpClient
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -16,8 +14,8 @@ interface NewsRestClient {
 }
 
 class RetrofitNewsRestClient : NewsRestClient {
-    private val retrofit : Retrofit
-    private val api : NewsApiInterface
+    private val retrofit: Retrofit
+    private val api: NewsApiInterface
 
     override suspend fun getNewsCryptoLatest(
         q: String,

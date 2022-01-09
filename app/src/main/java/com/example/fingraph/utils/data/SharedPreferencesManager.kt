@@ -3,6 +3,9 @@ package com.example.fingraph.utils.data
 import android.content.Context
 import com.example.fingraph.models.UserData
 import com.example.fingraph.models.networking.request.VerifyTokenRequest
+import com.example.fingraph.models.networking.response.Article
+import com.example.fingraph.models.networking.response.ArticleSource
+import com.example.fingraph.models.networking.response.CryptoNewsResponse
 
 
 class SharedPreferencesManager private constructor(private val domainContext: Context) {
@@ -41,6 +44,14 @@ class SharedPreferencesManager private constructor(private val domainContext: Co
         editor.apply()
     }
 
+    fun saveLatestNews(cryptoNewsLatest: CryptoNewsResponse) {
+        val sharedPreferencesManager = domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferencesManager.edit()
+
+        currentNews = cryptoNewsLatest
+        editor.apply()
+    }
+
     fun clearSharedPreferences() {
         val sharedPreferences =
             domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
@@ -52,6 +63,22 @@ class SharedPreferencesManager private constructor(private val domainContext: Co
     companion object {
         private const val SHARED_PREFERENCE_NAME = "mainPrefs"
         var domainPreferenceInstance: SharedPreferencesManager? = null
+        var currentNews: CryptoNewsResponse = CryptoNewsResponse(
+            status = "",
+            totalResults = 0,
+            articles = listOf(
+                Article(
+                    source = ArticleSource(id = "", name = ""),
+                    author = "",
+                    title = "",
+                    description = "",
+                    url = "",
+                    urlToImage = "",
+                    publishedAt = "",
+                    content = ""
+                )
+            )
+        )
 
         @Synchronized
         fun getInstance(domainContext: Context): SharedPreferencesManager {
