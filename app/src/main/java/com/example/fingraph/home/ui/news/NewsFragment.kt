@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,9 +13,6 @@ import com.example.fingraph.R
 import com.example.fingraph.databinding.FragmentNewsBinding
 import com.example.fingraph.home.ItemViewModel
 import com.example.fingraph.home.ui.news.view.NewsRecyclerAdapter
-import com.example.fingraph.models.networking.response.Article
-import com.example.fingraph.models.networking.response.ArticleSource
-import com.example.fingraph.models.networking.response.CryptoNewsResponse
 import com.example.fingraph.utils.data.SharedPreferencesManager
 
 class NewsFragment : Fragment() {
@@ -52,22 +48,6 @@ class NewsFragment : Fragment() {
             it
         })
         viewModel.fetchCryptoNewsData()
-        val result: CryptoNewsResponse = viewModel.cryptoNewsFlowData.value ?: CryptoNewsResponse(
-            status = "",
-            totalResults = 0,
-            articles = listOf(
-                Article(
-                    source = ArticleSource(id = "", name = ""),
-                    author = "",
-                    title = "",
-                    description = "",
-                    url = "",
-                    urlToImage = "",
-                    publishedAt = "",
-                    content = ""
-                )
-            )
-        )
 
         view.findViewById<RecyclerView>(R.id.news_recycler_view).apply {
             layoutManager = LinearLayoutManager(activity)

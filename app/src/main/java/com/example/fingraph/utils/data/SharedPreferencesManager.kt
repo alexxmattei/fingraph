@@ -35,7 +35,8 @@ class SharedPreferencesManager private constructor(private val domainContext: Co
     }
 
     fun saveUserDataToken(userToken: VerifyTokenRequest) {
-        val sharedPreferencesManager = domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val sharedPreferencesManager =
+            domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferencesManager.edit()
 
         editor.putString("Token", userToken.token)
@@ -43,7 +44,8 @@ class SharedPreferencesManager private constructor(private val domainContext: Co
     }
 
     fun saveLatestNews(cryptoNewsLatest: CryptoNewsResponse) {
-        val sharedPreferencesManager = domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val sharedPreferencesManager =
+            domainContext.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferencesManager.edit()
 
         currentNews = cryptoNewsLatest
@@ -61,6 +63,7 @@ class SharedPreferencesManager private constructor(private val domainContext: Co
     companion object {
         private const val SHARED_PREFERENCE_NAME = "mainPrefs"
         var domainPreferenceInstance: SharedPreferencesManager? = null
+
         var currentNews: CryptoNewsResponse = CryptoNewsResponse(
             status = "",
             totalResults = 0,
@@ -77,40 +80,70 @@ class SharedPreferencesManager private constructor(private val domainContext: Co
                 )
             )
         )
-        var currentPrices: List<CryptoPriceResponse> = listOf(CryptoPriceResponse(
-            id = "",
-            currency = "",
-            symbol = "",
-            name = "",
-            logo_url = "",
-            status = "",
-            price = 0.0,
-            priceDate = "",
-            priceTimestamp = "",
-            circulatingSupply = "",
-            maxSupply = "",
-            marketCap = "",
-            marketCapDominance = "",
-            numExchanges = "",
-            numPairs = "",
-            numPairsUnmapped = "",
-            firstCandle = "",
-            firstTrade = "",
-            firstOrderBook = "",
-            rank = "",
-            high = 0.0,
-            highTimestamp = "",
-            oneHour = OneHour(
-                volume = "",
-                priceChange = 0.0,
-                priceChangePct = 0.0,
-                volumeChange = 0.0,
-                volumeChangePct = 0.0,
-                marketCapChange = 0.0,
-                marketCapChangePct = 0.0
+        var currentPrices: List<CryptoPriceResponse> = listOf(
+            CryptoPriceResponse(
+                id = "",
+                currency = "",
+                symbol = "",
+                name = "",
+                logo_url = "",
+                status = "",
+                price = 0.0,
+                priceDate = "",
+                priceTimestamp = "",
+                circulatingSupply = "",
+                maxSupply = "",
+                marketCap = "",
+                marketCapDominance = "",
+                numExchanges = "",
+                numPairs = "",
+                numPairsUnmapped = "",
+                firstCandle = "",
+                firstTrade = "",
+                firstOrderBook = "",
+                rank = "",
+                high = 0.0,
+                highTimestamp = "",
+                oneHour = OneHour(
+                    volume = "",
+                    priceChange = 0.0,
+                    priceChangePct = 0.0,
+                    volumeChange = 0.0,
+                    volumeChangePct = 0.0,
+                    marketCapChange = 0.0,
+                    marketCapChangePct = 0.0
+                )
             )
-        ))
-        var defaultCryptoList = "BTC,ETH,BNB,USDT,SOL,ADA,XRP,DOT,USDC,DOGE,SHIB,LUNA,AVAX,LTC,LINK,UNI,ALGO,XLM"
+        )
+        var currentEducationList: List<CryptoMetadataResponse> = listOf(
+            CryptoMetadataResponse(
+                id = "",
+                original_symbol = "",
+                name = "",
+                description = "",
+                website_url = "",
+                logo_url = "",
+                blog_url = "",
+                discord_url = "",
+                facebook_url = "",
+                github_url = "",
+                medium_url = "",
+                reddit_url = "",
+                telegram_url = "",
+                twitter_url = "",
+                whitepaper_url = "",
+                youtube_url = "",
+                bitcointalk_url = "",
+                block_explorer_url = "",
+                markets_count = 0,
+                cryptocontrol_coin_id = "",
+                used_for_pricing = false,
+                platform_currency_id = "",
+                platform_contract_address = ""
+            )
+        )
+        var defaultCryptoList =
+            "BTC,ETH,BNB,USDT,SOL,ADA,XRP,DOT,USDC,DOGE,SHIB,LUNA,AVAX,LTC,LINK,UNI,ALGO,XLM"
 
         @Synchronized
         fun getInstance(domainContext: Context): SharedPreferencesManager {

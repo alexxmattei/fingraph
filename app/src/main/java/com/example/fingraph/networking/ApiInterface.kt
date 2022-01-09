@@ -3,6 +3,7 @@ package com.example.fingraph.networking
 import com.example.fingraph.models.networking.request.CreateNewPasswordRequest
 import com.example.fingraph.models.networking.request.CreateUserRequest
 import com.example.fingraph.models.networking.request.VerifyTokenRequest
+import com.example.fingraph.models.networking.response.CryptoMetadataResponse
 import com.example.fingraph.models.networking.response.CryptoPriceResponse
 import com.example.fingraph.models.networking.response.ResetPasswordResponse
 import retrofit2.Response
@@ -23,6 +24,9 @@ interface ApiInterface {
 
     @GET("api/v1/nomics/price/{coin}")
     suspend fun getCoinPriceById(@Path("coin") coin : String): List<CryptoPriceResponse>
+
+    @GET("api/v1/nomics/meta/{coin}")
+    suspend fun getCoinMetadataById(@Path("coin") coin : String): List<CryptoMetadataResponse>
 
     companion object {
         const val BASE_URL = "http://192.168.1.9:8080"

@@ -4,12 +4,20 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.load
 import com.example.fingraph.R
-import com.example.fingraph.cryptocurrency.CryptoTradingActivity
+import com.example.fingraph.home.ui.education.EducationActivity
+import com.example.fingraph.models.networking.response.CryptoMetadataResponse
+import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
+import java.util.*
 
-class EducationRecyclerAdapter : RecyclerView.Adapter<EducationRecyclerAdapter.ViewHolder>() {
+class EducationRecyclerAdapter(private val educationContentData: List<CryptoMetadataResponse>) : RecyclerView.Adapter<EducationRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -18,18 +26,31 @@ class EducationRecyclerAdapter : RecyclerView.Adapter<EducationRecyclerAdapter.V
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.educationContentTitle.text = educationContentTitle[position]
-        holder.educationContentTag.text = educationContentTag[position]
-        holder.educationContentPublishDate.text = educationContentPublishDate[position]
-        holder.educationContentTopic.text = educationContentTopic[position]
-        holder.educationContentText.text = educationContentText[position]
+        if(educationContentData[position].logo_url.isNotEmpty()) {
+            if(".svg" in educationContentData[position].logo_url) {
+                holder.educationContentImage.loadImage(educationContentData[position].logo_url, R.drawable.ic_loading_coin_icon)
+            } else {
+                Picasso.get().load(educationContentData[position].logo_url).fit().centerCrop()
+                    .into(holder.educationContentImage)
+            }
+        }
+        var contentTitle = educationContentData[position].description.take(36)
+        contentTitle = "$contentTitle [READ MORE]"
+        holder.educationContentTitle.text = contentTitle
+        var contentTag = educationContentData[position].id
+        contentTag = "$contentTag, Education"
+        holder.educationContentTag.text = contentTag
+        holder.educationContentPublishDate.text = SimpleDateFormat("dd/M/yyyy").format(Date())
+        holder.educationContentTopic.text = educationContentData[position].website_url
+        holder.educationContentText.text = educationContentData[position].description.take(300)
     }
 
     override fun getItemCount(): Int {
-        return educationContentTitle.size
+        return educationContentData.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var educationContentImage: ImageView
         var educationContentTitle: TextView
         var educationContentTag: TextView
         var educationContentPublishDate: TextView
@@ -38,6 +59,7 @@ class EducationRecyclerAdapter : RecyclerView.Adapter<EducationRecyclerAdapter.V
 
 
         init {
+            educationContentImage = itemView.findViewById(R.id.education_image_cryptocurrency)
             educationContentTitle = itemView.findViewById(R.id.card_education_title)
             educationContentTag = itemView.findViewById(R.id.card_education_tags)
             educationContentPublishDate = itemView.findViewById(R.id.card_education_publish_date)
@@ -47,49 +69,22 @@ class EducationRecyclerAdapter : RecyclerView.Adapter<EducationRecyclerAdapter.V
             itemView.setOnClickListener {
                 var position: Int = adapterPosition
                 val context = itemView.context
-                val intent = Intent(context, CryptoTradingActivity::class.java).apply {
-                    putExtra("POSITION", position)
-                    putExtra("TITLE", educationContentTitle.text)
-                    putExtra("DATE", educationContentPublishDate.text)
-                    putExtra("TOPIC", educationContentTopic.text)
-                    putExtra("CONTENT", educationContentText.text)
+                val intent = Intent(context, EducationActivity::class.java).apply {
+                    this.putExtra("METADATA", educationContentData[position])
                 }
                 context.startActivity(intent)
             }
         }
     }
+    fun ImageView.loadImage(imageUri: String, placeholder: Int? = null) {
 
-    private val educationContentTitle = arrayOf(
-        "Dollar Cost Average Your Crypto",
-        "Learn How to Minimise Risk", "Leverage Your Assets by Earning Interest", "How Blockchain Works: Behind the Code",
-        "Cryptocurrency vs. Gold and Other Assets"
-    )
+        val imageLoader = ImageLoader.Builder(this.context)
+            .componentRegistry { add(SvgDecoder(this@loadImage.context)) }
+            .build()
 
-    private val educationContentTag = arrayOf(
-        "Cryptocurrency", "Cryptocurrency",
-        "InflationProtection",
-        "Cryptocurrency", "Inflation Protection"
-    )
-
-    private val educationContentPublishDate = arrayOf(
-        "2/01/2021",
-        "2/01/2021", "2/01/2021", "2/01/2021",
-        "2/01/2021"
-    )
-
-    private val educationContentTopic = arrayOf(
-        "Agencies",
-        "Agencies", "The Motley Fool", "Bloomberg",
-        "Agencies"
-    )
-
-    private val educationContentText = arrayOf(
-        "‘Huge Surprise’—El Salvador’s President Issued Six Big Bitcoin Predictions As The Price Of Ethereum, BNB, Solana, Cardano And XRP Limp Into 2022",
-        "In our time, political speech and writing are largely the defense of the indefensible. George Orwell, Politics and the English LanguageRep. Ayanna Pressley of Massachusetts, a member of the progressive “squad,” recently accused those who disagree with student…",
-        "Tesla founder and CEO Elon Musk, who has been using social media to recruit people, has disclosed that Indian-origin Ashok Elluswamy was the first employee to be hired for his electric vehicle company's Autopilot team.",
-        "Happy New Year! Welcome to a bright shiny edition of The Weekly Authority, the Android Authority newsletter that breaks down the top Android and tech news from the week. The 175th edition here with t…",
-        "AMD seems to have released an entry-level Athlon Gold PRO 4150GE in the Asian Pacific market which will feature the Zen 2 core architecture.\\r\\nIt's been a while since AMD has touched the entry-level d… [+1867 chars]"
-    )
-
-
+        load(uri = imageUri, imageLoader = imageLoader) {
+            crossfade(true)
+            placeholder(placeholder ?: R.drawable.ic_loading_coin_icon)
+        }
+    }
 }

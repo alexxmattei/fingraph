@@ -3,6 +3,7 @@ package com.example.fingraph.networking
 import com.example.fingraph.models.networking.request.CreateNewPasswordRequest
 import com.example.fingraph.models.networking.request.CreateUserRequest
 import com.example.fingraph.models.networking.request.VerifyTokenRequest
+import com.example.fingraph.models.networking.response.CryptoMetadataResponse
 import com.example.fingraph.models.networking.response.CryptoPriceResponse
 import com.example.fingraph.models.networking.response.ResetPasswordResponse
 import okhttp3.OkHttpClient
@@ -17,6 +18,7 @@ interface RestClient {
     suspend fun sendEmailResetPassword(username: String): ResetPasswordResponse
     suspend fun updatePassword(createNewPasswordRequest: CreateNewPasswordRequest)
     suspend fun getCoinPriceById(coin: String): List<CryptoPriceResponse>
+    suspend fun getCoinMetadataById(coin: String): List<CryptoMetadataResponse>
 
     companion object {
         val INSTANCE: RestClient = RetrofitRestClient()
@@ -47,6 +49,10 @@ private class RetrofitRestClient : RestClient {
 
     override suspend fun getCoinPriceById(coin: String): List<CryptoPriceResponse> {
         return api.getCoinPriceById(coin)
+    }
+
+    override suspend fun getCoinMetadataById(coin: String): List<CryptoMetadataResponse> {
+        return api.getCoinMetadataById(coin)
     }
 
     init {
