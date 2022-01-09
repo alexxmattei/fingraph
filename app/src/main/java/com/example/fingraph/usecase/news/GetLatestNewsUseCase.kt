@@ -16,10 +16,9 @@ class GetLatestNewsUseCase : UseCase<GetLatestNewsRequest, Unit>(Dispatchers.IO)
 
     override suspend fun execute(params: GetLatestNewsRequest) {
         val response = client.getNewsCryptoLatest(params.q, params.sortBy, params.apiKey)
-        val newsResponse = response.body().toString()
-        val newsResponseValue = JSONObject(newsResponse)
-        Log.i("News", newsResponseValue["articles"].toString())
-        if(!response.isSuccessful) {
+        val newsResponse = response.articles
+        Log.i("News", newsResponse.toString())
+        if(response.articles.isEmpty()) {
             throw IllegalStateException("Something Went Wrong!")
         }
     }

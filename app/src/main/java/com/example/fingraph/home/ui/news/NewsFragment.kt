@@ -10,6 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.fingraph.databinding.FragmentEducationBinding
 import com.example.fingraph.databinding.FragmentNewsBinding
+import com.example.fingraph.models.networking.request.news.GetLatestNewsRequest
+import com.example.fingraph.networking.news.NewsApiInterface
 
 class NewsFragment : Fragment() {
 
@@ -30,8 +32,6 @@ class NewsFragment : Fragment() {
 
         _binding = FragmentNewsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-
         return root
     }
 
