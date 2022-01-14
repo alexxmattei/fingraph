@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.fingraph.R
 import com.example.fingraph.home.MainActivity
 import com.example.fingraph.models.networking.request.CreateUserRequest
+import com.example.fingraph.register.RegisterActivity
 import com.example.fingraph.utils.verifiers.Validators
 import java.io.IOException
 
@@ -25,8 +26,7 @@ class LoginActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.password)
         val logInButton = findViewById<Button>(R.id.logInButton)
         val rememberMe = findViewById<CheckBox>(R.id.rememberMe)
-//        val forgotPasswordLink = findViewById<TextView>(R.id.forgotPassword)
-//        val callToActionText = findViewById<TextView>(R.id.call)
+        val createAccountLink = findViewById<TextView>(R.id.createAccount)
 
         val sharedPreferences = getSharedPreferences("mainPrefs", Context.MODE_PRIVATE)
 
@@ -51,6 +51,13 @@ class LoginActivity : AppCompatActivity() {
                 deleteUserData()
             }
         }
+
+        createAccountLink.setOnClickListener {
+            val recoveryPasswordIntent = Intent(this, RegisterActivity::class.java)
+            this.startActivity(recoveryPasswordIntent)
+            this.finish()
+        }
+
 
         loginViewModel.error.observe(this) {
             Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_SHORT).show()

@@ -28,13 +28,14 @@
                 android:layout_width="match_parent"
                 android:minHeight="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
+                app:titleTextColor="@color/design_primary_text"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/Theme.Fingraph.PopupOverlay" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_scrolling" />
+    <include android:id="@+id/content_scrolling_layout" layout="@layout/content_scrolling" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -44,6 +45,6 @@
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
         app:backgroundTint="@color/design_primary"
-        android:src="@drawable/ic_loading_coin_icon"/>
+        android:src="@drawable/ic_loading_coin_icon" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

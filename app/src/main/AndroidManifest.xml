@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fingraph">
         <activity
+            android:name=".home.ui.news.NewsActivity"
+            android:exported="true" />
+        <activity
             android:name=".home.ui.education.EducationActivity"
             android:exported="true"
             android:label="@string/title_activity_education"

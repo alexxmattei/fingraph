@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.ui.profile.ProfileFragment">
+    tools:context=".home.ui.profile.ProfileFragment"
+    android:layout_marginBottom="50dp">
 
     <androidx.cardview.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -85,7 +86,23 @@
         </LinearLayout>
 
 
+
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_trash"
+        android:contentDescription="Add"
+        android:layout_margin="16dp"
+        android:background="@color/design_secondary"
+        app:backgroundTintMode="screen"
+        android:hapticFeedbackEnabled="true"
+        android:backgroundTint="@color/design_secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 
 

@@ -12,7 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fingraph.R
-import com.example.fingraph.cryptocurrency.CryptoTradingActivity
+import com.example.fingraph.home.ui.news.NewsActivity
 import com.example.fingraph.models.networking.response.CryptoNewsResponse
 import com.squareup.picasso.Picasso
 
@@ -84,11 +84,8 @@ class NewsRecyclerAdapter(private val newsResponse: CryptoNewsResponse) : Recycl
             readMoreButton.setOnClickListener {
                 var position: Int = adapterPosition
                 val context = itemView.context
-                val intent = Intent(context, CryptoTradingActivity::class.java).apply {
-                    putExtra("POSITION", position)
-                    putExtra("TITLE", newsTitle.text)
-                    putExtra("DATE", newsPublishDate.text)
-                    putExtra("AUHTOR", newsAuthor.text)
+                val intent = Intent(context, NewsActivity::class.java).apply {
+                    putExtra("METADATA_URL", newsResponse.articles[position].url)
                 }
                 context.startActivity(intent)
             }

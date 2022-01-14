@@ -1,6 +1,7 @@
 package com.example.fingraph.models.networking.response
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class CryptoNewsResponse(
     @SerializedName("status")
@@ -9,7 +10,7 @@ data class CryptoNewsResponse(
     val totalResults: Int,
     @SerializedName("articles")
     var articles: List<Article>
-)
+) : Serializable
 
 data class Article(
     @SerializedName("source")
@@ -28,11 +29,11 @@ data class Article(
     val publishedAt: String?,
     @SerializedName("content")
     val content: String
-)
+) : Serializable
 
 data class ArticleSource(
     @SerializedName("id")
     val id: String?,
     @SerializedName("name")
     val name: String?
-)
+) : Serializable

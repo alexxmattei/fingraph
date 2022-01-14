@@ -2,6 +2,7 @@ package com.example.fingraph.networking
 
 import com.example.fingraph.models.networking.request.CreateNewPasswordRequest
 import com.example.fingraph.models.networking.request.CreateUserRequest
+import com.example.fingraph.models.networking.request.RegisterUserRequest
 import com.example.fingraph.models.networking.request.VerifyTokenRequest
 import com.example.fingraph.models.networking.response.CryptoMetadataResponse
 import com.example.fingraph.models.networking.response.CryptoPriceResponse
@@ -10,6 +11,9 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiInterface {
+    @POST("api/v1/auth/register")
+    suspend fun registerUser(@Body userToCreate: RegisterUserRequest): Response<Any>
+
     @POST("api/v1/auth/login")
     suspend fun addUser(@Body userToCreate: CreateUserRequest): Response<Any>
 

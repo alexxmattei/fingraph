@@ -33,6 +33,7 @@
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13802083333333334" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_left.xml" value="0.25833333333333336" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.25833333333333336" />
+        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/ic_plus.xml" value="0.25833333333333336" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/layer_linear_rounded_login.xml" value="0.25833333333333336" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/layer_login_input_field.xml" value="0.25833333333333336" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/drawable/shape_login_button.xml" value="0.25833333333333336" />
@@ -40,8 +41,9 @@
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/activity_crypto_trading.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/activity_education.xml" value="0.1" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/activity_home.xml" value="0.3333333333333333" />
-        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/activity_login.xml" value="0.4" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
+        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/activity_news.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/activity_onboarding_step_one.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/activity_onboarding_step_three.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/activity_onboarding_step_two.xml" value="0.2421875" />
@@ -52,15 +54,16 @@
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/card_news_cryptocurrency.xml" value="0.152" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/card_watchlist_cryptocurrency.xml" value="0.1" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/content_main.xml" value="0.2421875" />
+        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/content_scrolling.xml" value="0.1" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_dashboard.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_education.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_first.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_home.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_news.xml" value="0.1" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_notifications.xml" value="0.2421875" />
-        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_profile.xml" value="0.121875" />
+        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_profile.xml" value="0.11764705882352941" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_second.xml" value="0.2421875" />
-        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_watchlist.xml" value="0.11354166666666667" />
+        <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/fragment_watchlist.xml" value="0.1" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/loginlinearlayer.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/layout/navigation_layout.xml" value="0.2421875" />
         <entry key="..\:/_FACULTATE/ANUL_2/DAM/DAM_Application/fingraph-client/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2421875" />

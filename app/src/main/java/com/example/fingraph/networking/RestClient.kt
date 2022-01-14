@@ -2,6 +2,7 @@ package com.example.fingraph.networking
 
 import com.example.fingraph.models.networking.request.CreateNewPasswordRequest
 import com.example.fingraph.models.networking.request.CreateUserRequest
+import com.example.fingraph.models.networking.request.RegisterUserRequest
 import com.example.fingraph.models.networking.request.VerifyTokenRequest
 import com.example.fingraph.models.networking.response.CryptoMetadataResponse
 import com.example.fingraph.models.networking.response.CryptoPriceResponse
@@ -13,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 interface RestClient {
+    suspend fun registerUser(newUser: RegisterUserRequest): Response<Any>
     suspend fun addUser(username: CreateUserRequest): Response<Any>
     suspend fun verifyToken(userToken: VerifyTokenRequest): Response<Any>
     suspend fun sendEmailResetPassword(username: String): ResetPasswordResponse
@@ -26,8 +28,12 @@ interface RestClient {
 }
 
 private class RetrofitRestClient : RestClient {
-    private val retrofit : Retrofit
-    private val api : ApiInterface
+    private val retrofit: Retrofit
+    private val api: ApiInterface
+
+    override suspend fun registerUser(newUser: RegisterUserRequest): Response<Any> {
+        return api.registerUser(newUser)
+    }
 
     override suspend fun addUser(
         username: CreateUserRequest
